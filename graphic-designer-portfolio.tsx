@@ -7,7 +7,10 @@ export default function PortfolioWebsite() {
   const [scrollY, setScrollY] = useState(0);
   const fullTitle = "Graphic Designer";
   const [typedTitle, setTypedTitle] = useState("");
+<<<<<<< HEAD
   const [isDeleting, setIsDeleting] = useState(false);
+=======
+>>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -16,6 +19,7 @@ export default function PortfolioWebsite() {
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     const typingSpeed = 80;
     const deletingSpeed = 50;
     const pauseAfterTypeMs = 1200;
@@ -41,6 +45,15 @@ export default function PortfolioWebsite() {
       if (timeoutId) window.clearTimeout(timeoutId);
     };
   }, [typedTitle, isDeleting, fullTitle]);
+=======
+    if (typedTitle.length < fullTitle.length) {
+      const timeoutId = setTimeout(() => {
+        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
+      }, 80);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [typedTitle]);
+>>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
 
   const projects = [
     {
@@ -321,6 +334,7 @@ export default function PortfolioWebsite() {
             </div>
             <div className="relative">
               <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+<<<<<<< HEAD
                 <img
                   src="/images/hero_bg.png"
                   alt="Creative design workspace"
@@ -331,6 +345,18 @@ export default function PortfolioWebsite() {
                     target.src = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80";
                   }}
                 />
+=======
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 animate-pulse"></div>
+                <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center">
+                  <div className="relative">
+                    <Palette size={150} className="text-purple-600" style={{animation: 'bounce 3s infinite'}} />
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full animate-bounce"></div>
+                    <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-pink-400 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute top-1/2 -left-8 w-10 h-10 bg-blue-400 rounded-full animate-ping"></div>
+                    <div className="absolute top-10 -right-8 w-8 h-8 bg-green-400 rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+>>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
               </div>
             </div>
           </div>
