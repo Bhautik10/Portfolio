@@ -18,41 +18,33 @@ export default function PortfolioWebsite() {
   }, []);
 
   useEffect(() => {
-<<<<<<< HEAD
-    const typingSpeed = 80;
-    const deletingSpeed = 50;
-    const pauseAfterTypeMs = 1200;
-    const pauseAfterDeleteMs = 400;
-
-    let timeoutId: number | undefined;
-
-    if (!isDeleting && typedTitle.length < fullTitle.length) {
-      timeoutId = window.setTimeout(() => {
-        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
-      }, typingSpeed);
-    } else if (!isDeleting && typedTitle.length === fullTitle.length) {
-      timeoutId = window.setTimeout(() => setIsDeleting(true), pauseAfterTypeMs);
-    } else if (isDeleting && typedTitle.length > 0) {
-      timeoutId = window.setTimeout(() => {
-        setTypedTitle(fullTitle.slice(0, typedTitle.length - 1));
-      }, deletingSpeed);
-    } else if (isDeleting && typedTitle.length === 0) {
-      timeoutId = window.setTimeout(() => setIsDeleting(false), pauseAfterDeleteMs);
-    }
-
-    return () => {
-      if (timeoutId) window.clearTimeout(timeoutId);
-    };
-  }, [typedTitle, isDeleting, fullTitle]);
-
-    if (typedTitle.length < fullTitle.length) {
-      const timeoutId = setTimeout(() => {
-        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
-      }, 80);
-      return () => clearTimeout(timeoutId);
-    }
-  }, [typedTitle]);
->>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
+    useEffect(() => {
+      const typingSpeed = 80;
+      const deletingSpeed = 50;
+      const pauseAfterTypeMs = 1200;
+      const pauseAfterDeleteMs = 400;
+    
+      let timeoutId: number | undefined;
+    
+      if (!isDeleting && typedTitle.length < fullTitle.length) {
+        timeoutId = window.setTimeout(() => {
+          setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
+        }, typingSpeed);
+      } else if (!isDeleting && typedTitle.length === fullTitle.length) {
+        timeoutId = window.setTimeout(() => setIsDeleting(true), pauseAfterTypeMs);
+      } else if (isDeleting && typedTitle.length > 0) {
+        timeoutId = window.setTimeout(() => {
+          setTypedTitle(fullTitle.slice(0, typedTitle.length - 1));
+        }, deletingSpeed);
+      } else if (isDeleting && typedTitle.length === 0) {
+        timeoutId = window.setTimeout(() => setIsDeleting(false), pauseAfterDeleteMs);
+      }
+    
+      return () => {
+        if (timeoutId) window.clearTimeout(timeoutId);
+      };
+    }, [typedTitle, isDeleting, fullTitle]);
+    
 
   const projects = [
     {
