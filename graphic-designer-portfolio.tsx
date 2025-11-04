@@ -667,7 +667,7 @@ export default function PortfolioWebsite() {
               <a href="#" className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
                 <Linkedin size={28} />
               </a>
-              <a href="#" className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
+              <a href="https://github.com/Bhautik10" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
                 <Github size={28} />
               </a>
               <a href="#" className="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
