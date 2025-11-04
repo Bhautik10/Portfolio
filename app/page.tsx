@@ -18,33 +18,31 @@ export default function PortfolioWebsite() {
   }, []);
 
   useEffect(() => {
-    useEffect(() => {
-      const typingSpeed = 80;
-      const deletingSpeed = 50;
-      const pauseAfterTypeMs = 1200;
-      const pauseAfterDeleteMs = 400;
-    
-      let timeoutId: number | undefined;
-    
-      if (!isDeleting && typedTitle.length < fullTitle.length) {
-        timeoutId = window.setTimeout(() => {
-          setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
-        }, typingSpeed);
-      } else if (!isDeleting && typedTitle.length === fullTitle.length) {
-        timeoutId = window.setTimeout(() => setIsDeleting(true), pauseAfterTypeMs);
-      } else if (isDeleting && typedTitle.length > 0) {
-        timeoutId = window.setTimeout(() => {
-          setTypedTitle(fullTitle.slice(0, typedTitle.length - 1));
-        }, deletingSpeed);
-      } else if (isDeleting && typedTitle.length === 0) {
-        timeoutId = window.setTimeout(() => setIsDeleting(false), pauseAfterDeleteMs);
-      }
-    
-      return () => {
-        if (timeoutId) window.clearTimeout(timeoutId);
-      };
-    }, [typedTitle, isDeleting, fullTitle]);
-    
+    const typingSpeed = 80;
+    const deletingSpeed = 50;
+    const pauseAfterTypeMs = 1200;
+    const pauseAfterDeleteMs = 400;
+
+    let timeoutId: number | undefined;
+
+    if (!isDeleting && typedTitle.length < fullTitle.length) {
+      timeoutId = window.setTimeout(() => {
+        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
+      }, typingSpeed);
+    } else if (!isDeleting && typedTitle.length === fullTitle.length) {
+      timeoutId = window.setTimeout(() => setIsDeleting(true), pauseAfterTypeMs);
+    } else if (isDeleting && typedTitle.length > 0) {
+      timeoutId = window.setTimeout(() => {
+        setTypedTitle(fullTitle.slice(0, typedTitle.length - 1));
+      }, deletingSpeed);
+    } else if (isDeleting && typedTitle.length === 0) {
+      timeoutId = window.setTimeout(() => setIsDeleting(false), pauseAfterDeleteMs);
+    }
+
+    return () => {
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, [typedTitle, isDeleting, fullTitle]);
 
   const projects = [
     {
