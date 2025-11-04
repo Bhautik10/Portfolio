@@ -44,7 +44,7 @@ export default function PortfolioWebsite() {
       if (timeoutId) window.clearTimeout(timeoutId);
     };
   }, [typedTitle, isDeleting, fullTitle]);
-=======
+
     if (typedTitle.length < fullTitle.length) {
       const timeoutId = setTimeout(() => {
         setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
