@@ -7,6 +7,8 @@ export default function PortfolioWebsite() {
   const [scrollY, setScrollY] = useState(0);
   const fullTitle = "Graphic Designer";
   const [typedTitle, setTypedTitle] = useState("");
+const [isDeleting, setIsDeleting] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -15,13 +17,10 @@ export default function PortfolioWebsite() {
   }, []);
 
   useEffect(() => {
-    if (typedTitle.length < fullTitle.length) {
-      const timeoutId = setTimeout(() => {
-        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
-      }, 80);
-      return () => clearTimeout(timeoutId);
-    }
-  }, [typedTitle]);
+    const [isDeleting, setIsDeleting] = useState(false);
+    // your logic here
+  }, []); // ✅ Just close the useEffect without returning
+
 
   const projects = [
     {
@@ -302,6 +301,18 @@ export default function PortfolioWebsite() {
             </div>
             <div className="relative">
               <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+
+                <img
+                  src="/images/hero_bg.png"
+                  alt="Creative design workspace"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80";
+                  }}
+                />
+
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 animate-pulse"></div>
                 <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center">
                   <div className="relative">
@@ -622,7 +633,7 @@ export default function PortfolioWebsite() {
               <a href="#" className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
                 <Linkedin size={28} />
               </a>
-              <a href="#" className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
+              <a href="https://github.com/Bhautik10" target="_blank" rel="noopener noreferrer" className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
                 <Github size={28} />
               </a>
               <a href="#" className="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center text-white hover:scale-110 transition shadow-lg hover:shadow-xl">
