@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  trailingSlash: true, // 👈 ye line add karo
 };
 
 export default nextConfig;
