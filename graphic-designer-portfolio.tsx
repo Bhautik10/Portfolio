@@ -7,8 +7,15 @@ export default function PortfolioWebsite() {
   const [scrollY, setScrollY] = useState(0);
   const fullTitle = "Graphic Designer";
   const [typedTitle, setTypedTitle] = useState("");
+<<<<<<< HEAD
 const [isDeleting, setIsDeleting] = useState(false);
 
+=======
+<<<<<<< HEAD
+  const [isDeleting, setIsDeleting] = useState(false);
+=======
+>>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
+>>>>>>> f7288329b5bcc22f4b1951daf7431b09578a0bb2
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -17,10 +24,48 @@ const [isDeleting, setIsDeleting] = useState(false);
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     const [isDeleting, setIsDeleting] = useState(false);
     // your logic here
   }, []); // ✅ Just close the useEffect without returning
 
+=======
+<<<<<<< HEAD
+    const typingSpeed = 80;
+    const deletingSpeed = 50;
+    const pauseAfterTypeMs = 1200;
+    const pauseAfterDeleteMs = 400;
+
+    let timeoutId: number | undefined;
+
+    if (!isDeleting && typedTitle.length < fullTitle.length) {
+      timeoutId = window.setTimeout(() => {
+        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
+      }, typingSpeed);
+    } else if (!isDeleting && typedTitle.length === fullTitle.length) {
+      timeoutId = window.setTimeout(() => setIsDeleting(true), pauseAfterTypeMs);
+    } else if (isDeleting && typedTitle.length > 0) {
+      timeoutId = window.setTimeout(() => {
+        setTypedTitle(fullTitle.slice(0, typedTitle.length - 1));
+      }, deletingSpeed);
+    } else if (isDeleting && typedTitle.length === 0) {
+      timeoutId = window.setTimeout(() => setIsDeleting(false), pauseAfterDeleteMs);
+    }
+
+    return () => {
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, [typedTitle, isDeleting, fullTitle]);
+=======
+    if (typedTitle.length < fullTitle.length) {
+      const timeoutId = setTimeout(() => {
+        setTypedTitle(fullTitle.slice(0, typedTitle.length + 1));
+      }, 80);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [typedTitle]);
+>>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
+>>>>>>> f7288329b5bcc22f4b1951daf7431b09578a0bb2
 
   const projects = [
     {
@@ -301,7 +346,11 @@ const [isDeleting, setIsDeleting] = useState(false);
             </div>
             <div className="relative">
               <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> f7288329b5bcc22f4b1951daf7431b09578a0bb2
                 <img
                   src="/images/hero_bg.png"
                   alt="Creative design workspace"
@@ -312,7 +361,11 @@ const [isDeleting, setIsDeleting] = useState(false);
                     target.src = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80";
                   }}
                 />
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> f7288329b5bcc22f4b1951daf7431b09578a0bb2
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 animate-pulse"></div>
                 <div className="absolute inset-4 bg-white rounded-2xl flex items-center justify-center">
                   <div className="relative">
@@ -323,6 +376,7 @@ const [isDeleting, setIsDeleting] = useState(false);
                     <div className="absolute top-10 -right-8 w-8 h-8 bg-green-400 rounded-full animate-pulse"></div>
                   </div>
                 </div>
+>>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
               </div>
             </div>
           </div>
