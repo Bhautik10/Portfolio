@@ -7,15 +7,9 @@ export default function PortfolioWebsite() {
   const [scrollY, setScrollY] = useState(0);
   const fullTitle = "Graphic Designer";
   const [typedTitle, setTypedTitle] = useState("");
-<<<<<<< HEAD
-const [isDeleting, setIsDeleting] = useState(false);
-
-=======
-<<<<<<< HEAD
+  const fullTitle = "Graphic Designer";
+  const [typedTitle, setTypedTitle] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-=======
->>>>>>> b16faee3781acd238934b287b5e728362ccba4e8
->>>>>>> f7288329b5bcc22f4b1951daf7431b09578a0bb2
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
